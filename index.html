@@ -1,15 +1,35 @@
+<!DOCTYPE HTML>
+<!--Clock Countdown-->
 <html>
 <head>
-  <title>Hello World Assignment by Kristi Short</title>
-  <link rel="stylesheet" href="main.css">
-  <script src="demo1.js"></script>
+<style>
+p {
+  text-align: center;
+  font-size: 80px;
+}
+</style>
 </head>
 <body>
-  <h1>Showing and Hiding</h1>
-  <p>Demo Page</p>
-  
-  <ul id="demolist">
-    
-  </ul>
+
+<p id="demo"></p>
+<script>
+var deadline = new Date("Dec 8, 2018 18:00:30").getTime();
+// Clock update to every one second
+var x = setInterval(function() {
+//Get todays date and time
+var now = new Date().getTime();
+//Calculate distance between now and countdown date
+var t = deadline - now;
+//Time calculations for days, hours, minutes and seconds
+var days = Math.floor(t / (1000 * 60 * 60 * 24));
+var hours = Math.floor((t%(1000 * 60 * 60 * 24))/(1000 * 60 * 60));
+var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
+var seconds = Math.floor((t % (1000 * 60)) / 1000);
+//Results are id="demo"
+document.getElementById("demo").innerHTML = days + "d " + hours + "h" + minutes + "m" + seconds + "s"; 
+
+}, 1000);
+</script>
+ 
 </body>
 </html>
